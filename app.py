@@ -5,6 +5,8 @@ import numpy as np
 import joblib
 import tkinter as tk
 from PIL import Image, ImageTk
+from flask import send_from_directory, redirect, url_for
+import pathlib
 
 
 def show_flipping_card(species_name):
@@ -210,9 +212,17 @@ from multiprocessing import Process
 app = Flask(__name__)
 CORS(app)
 
+frontend_path = pathlib.Path(__file__).parent / "DECO development"
+app.template_folder = str(frontend_path)
+app.static_folder = str(frontend_path)
+
+@app.route("/<path:filename>")
+def serve_static(filename):
+    return send_from_directory(frontend_path, filename)
+
 @app.route("/")
 def index():
-    return "<h1>Fauna & Flora Identifier</h1><p>Use POST /predict with an image.</p>"
+    return send_from_directory(frontend_path, "index.html")
 
 @app.route("/predict", methods=["POST"])
 def predict():
@@ -228,11 +238,12 @@ def predict():
     p = Process(target=show_flipping_card, args=(species,))
     p.start()
 
-    return jsonify({'prediction': species})
+    species_filename = species.lower().replace(" ", "-")
+    return redirect(f"/card-{species_filename}.html")
 
 if __name__ == "__main__":
     import sys
     if "--web" in sys.argv:
-        app.run(debug=True)
+        app.run(debug=True, host="0.0.0.0", port=5050)
     else:
         run_cli()
