@@ -28,16 +28,42 @@ def show_flipping_card(species_name):
         window.mainloop()
         return
 
-    back_image = Image.open(back_path).resize((300, 420))
+    back_image = Image.open(back_path).resize((360, 504))
 
     label = tk.Label(window)
     label.pack()
 
+    flip_steps = 10
+    flip_delay = 30  # milliseconds
+
+    def animate_flip(images, step=0):
+        if step < len(images):
+            label.imgtk = ImageTk.PhotoImage(images[step])
+            label.config(image=label.imgtk)
+            window.after(flip_delay, lambda: animate_flip(images, step + 1))
+        else:
+            label.config(image=label.imgtk)
+
     def flip():
         if front_path and os.path.exists(front_path):
-            front_image = Image.open(front_path).resize((300, 420))
-            label.imgtk = ImageTk.PhotoImage(front_image)
-            label.config(image=label.imgtk)
+            front_image = Image.open(front_path).resize((360, 504))
+
+            flip_sequence = []
+            # Create shrinking back image frames
+            for i in range(flip_steps):
+                scale = 1 - (i / flip_steps)
+                w = max(1, int(360 * scale))
+                resized = back_image.resize((w, 504), Image.LANCZOS)
+                flip_sequence.append(resized)
+
+            # Create expanding front image frames
+            for i in range(flip_steps):
+                scale = (i + 1) / flip_steps
+                w = max(1, int(360 * scale))
+                resized = front_image.resize((w, 504), Image.LANCZOS)
+                flip_sequence.append(resized)
+
+            animate_flip(flip_sequence)
         else:
             label.config(text=f"No front image for {species_name}")
 
@@ -178,8 +204,11 @@ def run_cli():
 
 
 from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS
+from multiprocessing import Process
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/")
 def index():
@@ -189,9 +218,16 @@ def index():
 def predict():
     if 'image' not in request.files:
         return jsonify({'error': 'No image uploaded'}), 400
+
     file = request.files['image']
     file.save("snapshot.jpg")
+
     species = recognize_species("snapshot.jpg")
+
+    # ✅ Launch Tkinter flipping card in a separate process
+    p = Process(target=show_flipping_card, args=(species,))
+    p.start()
+
     return jsonify({'prediction': species})
 
 if __name__ == "__main__":
