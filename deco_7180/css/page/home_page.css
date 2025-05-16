@@ -1,0 +1,287 @@
+/* homepage.css */
+
+/* 1. Page Wrapper */
+.page {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--color-background);
+    overflow: hidden;
+  }
+  
+  /* 1. Header & Navigation */
+.site-header {
+    background-color: var(--color-primary);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .site-header .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;   /* 右侧对齐 */
+    position: relative;          /* 使 logo 绝对定位参考 */
+    height: 80px;
+    padding: 0 2rem;
+  }
+  
+  /* Logo 居中 */
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: auto;
+  }
+  
+  /* 品牌 SnapSpecies 靠左 */
+  .brand {
+    font-family: var(--font-family-display);
+    font-size: 1.5rem;
+    color: #fff;
+    margin-right: auto;           /* 将品牌推到最左 */
+  }
+  
+  /* 导航链接 */
+  .main-nav .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .main-nav .nav-links a {
+    font-family: var(--font-family-display);
+    font-size: 1rem;
+    color: white;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .main-nav .nav-links a:hover,
+  .main-nav .nav-links a:focus {
+    color: var(--color-accent);
+  }
+  
+  /* 导航按钮 */
+  .nav-btn {
+    margin-left: 2rem;
+    font-size: 1rem;
+  }
+                /* 3. Hero Section */
+                        /* 修改后的 Hero Section */
+                        .hero {
+                            position: relative;
+                            width: 100%;
+                            height: 80vh;
+                            overflow: hidden;
+                        
+                            /* ① 用 Flexbox 左右分区 */
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                        }
+                        
+                        /* 背景图，本身稍微调暗但不太过 */
+                        .hero > img {
+                            position: absolute;
+                            inset: 0;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        
+                            /* ② 稍微调暗，文本可读性更好 */
+                            filter: brightness(0.75);
+                            
+                        }
+                        
+                        /* 蒙版改为更浅的黑色，保证文字黑色也清晰 */
+                        /* 1. 调整遮罩透明度 */
+                        .hero::after {
+                            background: rgba(0, 0, 0, 0.15); /* 原来是0.3，现在调浅到0.15 */
+                        }
+                        
+                        /* 2. 给文字加上阴影＋白色，提升可读性 */
+                        /* —— 3. 左侧文字区 —— */
+.hero__content {
+    position: relative;          /* 恢复为正常文档流 */
+    top: 200px;
+    z-index: 1;
+    flex: 0 0 45%;               /* 占 45% 宽度，可根据需求微调 */
+    padding: 2rem;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+  }
+  
+  /* —— 4. 右侧卡片区 —— */
+  .hero__card {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 30%;               /* 同样占 45% 宽度 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+                        
+                        /* 3. 调整标题与副标题大小（可选） */
+                        .hero__title {
+                            font-size: 3rem;         /* 适当放大标题 */
+                            line-height: 1.2;
+                            color: #fff;
+                        }
+                        .hero__subtitle {
+                            font-size: 1.25rem;
+                            margin-bottom: 1.5rem;
+                            
+                        }
+                        /* —— Hero 按钮 —— */
+                        .hero__content .btn {
+                            /* 尺寸调整 */
+                            padding: 1rem 2.5rem;      /* 上下 1rem，左右 2.5rem */
+                            font-size: 1.25rem;        /* 按钮文字放大到 20px */
+                            border-radius: 24px;
+                            
+                            /* 位置调整：在文字下方有间距 */
+                            display: inline-block;
+                            margin-top: 2rem;          /* 与副标题间距 */
+
+                        }
+                        
+                        
+                        /* 卡片图片限制 */
+                        .hero__card img {
+                            max-width: 100%;              /* 宽度自适应容器，不会溢出 */
+                            height: auto;                 /* 保持原始宽高比 */
+                            object-fit: contain;          /* 在容器内完整显示 */
+                            border-radius: 1rem;
+                            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                            transition: transform 0.3s ease;
+                          }
+                          .hero__card img:hover {
+                            transform: scale(1.05);
+                          }
+                        
+ 
+  /* 4. How-it-Works / Demo Video */
+  #how-it-works {
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+  #how-it-works h2 {
+    font-family: var(--font-family-display);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  .demo-video {
+    width: 100%;
+    max-width: 800px;
+    height: 0;
+    padding-top: 56.25%; /* 16:9 ratio */
+    background: #ddd;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  /* 5. Features Slider */
+  .features-slider {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding: 2rem 2rem;
+    scroll-snap-type: x mandatory;
+  }
+  .features-slider > * {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: 260px;
+  }
+  
+  /* 6. Benefits / Values */
+  .benefits {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    padding: 4rem 2rem;
+  }
+  .benefit-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 280px;
+  }
+  .benefit-item svg {
+    width: 64px;
+    height: 64px;
+    fill: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+  .benefit-item h3 {
+    font-family: var(--font-family-display);
+    font-size: 1.25rem;
+    margin-bottom: .5rem;
+  }
+  .benefit-item p {
+    font-family: var(--font-family-sans);
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  
+  /* 7. Secondary CTA */
+  .cta-2 {
+    text-align: center;
+    background: var(--color-background);
+    padding: 4rem 2rem;
+  }
+  .cta-2 h2 {
+    font-family: var(--font-family-display);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* 8. Footer */
+  footer {
+    background: var(--color-primary);
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+  }
+  footer .footer__nav,
+  footer .footer__social {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  footer a {
+    color: #fff;
+    text-decoration: none;
+    transition: color .2s;
+  }
+  footer a:hover {
+    color: var(--color-accent);
+  }
+  footer p {
+    font-family: var(--font-family-sans);
+    font-size: .875rem;
+  }
+
+  .btn {
+    background-color: var(--color-jacko-bean);  /* 默认态：Jacko Bean */
+    color: #fff;
+    transition: background-color 0.2s ease;
+  }
+  
+  .btn:hover,
+  .btn:focus {
+    background-color: var(--color-accent);     /* 悬停态：Green Mist (#BAC095) */
+    color: #000; 
+  }
+
+
+
+
+
+  

@@ -1,0 +1,24 @@
+/* —— 视频卡片容器 —— */
+.video-card {
+    width: 80%;                   /* 占父容器 80% 宽度 */
+    max-width: 1000px;            /* 最多不要超过 1000px */
+    margin: 2rem auto;            /* 上下留白，水平居中 */
+    background: #fff;             /* 白底卡片 */
+    border-radius: 12px;          /* 圆角 */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* 投影 */
+    overflow: hidden;             /* 圆角下遮裁视频 */
+  }
+  
+  /* —— 卡片内视频 —— */
+  .video-card video {
+    width: 100%;                  /* 填满容器宽度 */
+    height: auto;                 /* 等比缩放 */
+    display: block;
+  }
+  
+  /* 响应式：窄屏时视频占比调大 */
+  @media (max-width: 768px) {
+    .video-card {
+      width: 95%;                 /* 手机端占到 95% 宽 */
+    }
+  }

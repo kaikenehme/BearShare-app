@@ -1,0 +1,9 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+  <!-- 左手 -->
+  <path d="M10 30 L28 18 L36 26 L18 38 Z"/>
+  <!-- 右手 -->
+  <path d="M54 30 L36 18 L28 26 L46 38 Z"/>
+  <!-- 手指细节 -->
+  <path d="M28 18 L36 26"/>
+  <path d="M36 18 L28 26"/>
+</svg>

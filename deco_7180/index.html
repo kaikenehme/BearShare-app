@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapSpecies</title>
+    <!-- CSS连接处 -->
+    <link rel="stylesheet" href="css/base.css"></head>
+    <link rel="stylesheet" href="css/layout.css"></head>
+    <link rel="stylesheet" href="css/page/home_page.css"></head>
+    <link rel="stylesheet" href="css/compoments/video.css"></head>
+    <link rel="stylesheet" href="css/compoments/Carousel.css"></head>
+    <link rel="stylesheet" href="css/compoments/auth-modal.css"></head>
+
+
+
+
+
+
+<body>
+    <header class="site-header">
+        <div class="header-container container">
+          <img class="logo" src="photos/logo.png" alt="SnapSpecies Logo" />
+          <span class="brand">BearShared</span>
+          <nav class="main-nav">
+            <ul class="nav-links">
+              <li><a href="#">Home</a></li>
+              <li><a href="/collect.html">Collection</a></li>
+              <li><a href="#about">About</a></li>
+            </ul>
+          </nav>
+          <a href="javascript:void(0)" id="get-app-btn" class="btn nav-btn">Get the App</a>
+        </div>
+      </header>
+    <!-- Hero Section -->
+  <section class="hero">
+    <img src="photos/edward-wilson-gIS6RfR9cLM-unsplash.jpg" alt="Wildlife Background" />
+    <div class="hero__content container">
+      <h1 class="hero__title">Step Outside. Capture Nature.<br/>Collect Your Cards.</h1>
+      <p class="hero__subtitle">Turn every wildlife sighting into a card.</p>
+      <a href="#download" class="btn">Learn More</a>
+    </div>
+    <div class="hero__card">
+        <img src="photos/Wombat Card.png" alt="Wombat Card" />
+      </div>
+  </section>
+
+  <!-- How It Works -->
+  <!-- How It Works 改为视频演示 -->
+<section id="how-it-works" class="container how-it-works">
+    <h2>How It Works</h2>
+    <div class="how-it-works__video">
+      <!-- 你可以换成自己的视频源或 iframe -->
+      <div class="video-card">
+      <video src="videos/demo.mp4" controls poster="images/demo-poster.jpg"></video>
+    </div>
+  </section>
+  
+  <!-- 新增：卡片横向滑动展示 -->
+  <section id="features" class="container card-carousel">
+    <h2 class="card-carousel__title">Taste Collector</h2>
+  
+    <div class="card-carousel">
+      <!-- 进度条 + 考拉指示器 -->
+      <div class="card-carousel__progress">
+        <div class="card-carousel__progress-fill"></div>
+        <img src="photos/考拉照片.png"
+             class="card-carousel__koala"
+             alt="Koala progress indicator">
+      </div>
+  
+      <!-- 横向滚动轨道 -->
+      <div class="card-carousel__track">
+        <div class="card-carousel__item">
+          <img src="photos/cassorwary Card.png" alt="Card 1">
+        </div>
+        <div class="card-carousel__item">
+          <img src="photos/Dragon Card.png" alt="Card 2">
+        </div>
+        <div class="card-carousel__item">
+          <img src="photos/Kangi Card.png" alt="Card 3">
+        </div>
+        <div class="card-carousel__item">
+            <img src="photos/Koala Card.png" alt="Card 4">
+          </div>
+          <div class="card-carousel__item">
+            <img src="photos/platypus Card.png" alt="Card 5">
+          </div>
+          <div class="card-carousel__item">
+            <img src="photos/RedBellySnake Card.png" alt="Card 6">
+          </div>
+          <div class="card-carousel__item">
+            <img src="photos/SpringbrookNationalPark Card.png" alt="Card 7">
+          </div>
+          <div class="card-carousel__item">
+            <img src="photos/TasDevil Card.png" alt="Card 8">
+          </div>
+          <div class="card-carousel__item">
+            <img src="photos/Wombat Card.png" alt="Card 9">
+          </div>
+        <!-- 更多卡片项 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits / Values -->
+  <section class="benefits container">
+    <div class="benefit-item">
+      <img src="/icons/6989143_wellness_workout_strength_vitality_healthy_icon.png" alt="Wellness Icon" />
+      <h3>Mental &amp; Physical Wellness</h3>
+      <p>Encourage outdoor walking to boost well-being.</p>
+    </div>
+    <div class="benefit-item">
+      <img src="/icons/4213440_community_group_leader_people_team_icon.png" alt="Community Icon" />
+      <h3>Community Collaboration</h3>
+      <p>Partner with conservation groups to contribute wildlife data.</p>
+    </div>
+    <div class="benefit-item">
+      <img src="/icons/5355688_casino_gambling_game_gaming_play_icon.png" alt="Interactive Fun Icon" />
+      <h3>Interactive Fun</h3>
+      <p>Collect, trade, and showcase your rare species cards.</p>
+    </div>
+  </section>
+
+  <!-- Secondary CTA -->
+  <section id="download" class="cta">
+    <h2 class="cta__title">Join thousands of nature explorers</h2>
+    <h1 class="cta__title">NOW!!!</h1>
+    <a href="javascript:void(0)" id="get-app-btn-2" class="btn nav-btn">Get the App</a>
+  </section>
+
+  
+
+  <!-- ——— 弹出层 HTML ——— -->
+  <div id="auth-modal" class="modal-overlay hidden">
+    <div class="modal">
+      <button class="close-btn" id="modal-close">×</button>
+      <div class="toggle-links">
+        <a href="#" id="show-login" class="active">Log In</a> |
+        <a href="#" id="show-register">Register</a>
+      </div>
+
+      <!-- 登录表单 -->
+      <form id="login-form" class="auth-form">
+        <h2>Log In</h2>
+        <div class="form-group">
+          <label for="login-username">Username</label>
+          <input id="login-username" type="text" name="username" required>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <input id="login-password" type="password" name="password" required>
+        </div>
+        <button type="submit" class="btn submit-btn">Log In</button>
+      </form>
+
+      <!-- 注册表单 -->
+      <form id="register-form" class="auth-form hidden">
+        <h2>Register</h2>
+        <div class="form-group">
+          <label for="first-name">First Name</label>
+          <input id="first-name" type="text" name="firstName" required>
+        </div>
+        <div class="form-group">
+          <label for="last-name">Last Name</label>
+          <input id="last-name" type="text" name="lastName" required>
+        </div>
+        <div class="form-group">
+          <label for="profile-pic">Profile Picture</label>
+          <input id="profile-pic" type="file" name="profilePicture" accept="image/*">
+        </div>
+        <div class="form-group">
+          <label>Gender</label>
+          <div class="radio-group">
+            <label><input type="radio" name="gender" value="Male" required> Male</label>
+            <label><input type="radio" name="gender" value="Female"> Female</label>
+            <label><input type="radio" name="gender" value="Other"> Other</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="reg-username">Username</label>
+          <input id="reg-username" type="text" name="username" required>
+        </div>
+        <div class="form-group">
+          <label for="reg-password">Password</label>
+          <input id="reg-password" type="password" name="password" required>
+        </div>
+        <div class="form-group">
+          <label for="reg-confirm">Confirm Password</label>
+          <input id="reg-confirm" type="password" name="confirmPassword" required>
+        </div>
+        <button type="submit" class="btn submit-btn">Register</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <nav class="footer__nav">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact Us</a>
+    </nav>
+    <nav class="footer__social">
+      <a href="#"><img src="icons/5305154_fb_facebook_facebook logo_icon.png" alt="Facebook"></a>
+      <a href="#"><img src="icons/8666638_instagram_icon.png" alt="Instagram"></a>
+      <a href="#"><img src="icons/11244080_x_twitter_elon musk_twitter new logo_icon.png" alt="Twitter"></a>
+    </nav>
+    <p class="footer__copyright">© DECO 7180 Team Gruppe. All rights reserved.</p>
+  </footer>  
+
+   
+
+</body>
+
+    
+<script type="module" src="/auth-modal.js"></script>
+<script type="module" src="/modules.js/postFormData.js"></script>
+<script type="module" src="/modules.js/getData.js"></script>
+
+<script src="/carousel.js"></script>
+</html>

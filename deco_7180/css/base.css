@@ -1,0 +1,130 @@
+/* base.css */
+
+/* 0. Google Fonts 引入 */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
+/* base.css */
+
+/* 1. Reset & Box Sizing */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 2. Theme Variables */
+:root {
+  /* Colors */
+  --color-dark-olive-green: #636B2F;
+  --color-green-mist:       #BAC095;
+  --color-loden-green:      #D4DE95;
+  --color-jacko-bean:       #3D4127;
+
+  /* Semantic roles */
+  --color-primary:   var(--color-dark-olive-green);
+  --color-secondary: var(--color-loden-green);
+  --color-accent:    var(--color-green-mist);
+  --color-accent2:   var(--color-jacko-bean);
+
+  /* Text & background */
+  --color-text:      #000000;
+  --color-background: #F4EDE4;
+
+  /* Typography */
+  --font-family-sans:    'Roboto', Arial, sans-serif;
+  --font-family-display: 'Bungee', cursive, sans-serif;
+  --font-size-base:      16px;
+  --line-height-base:    1.5;
+}
+
+/* 3. Global Styles */
+html {
+  font-size: var(--font-size-base);
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+body {
+  font-family: var(--font-family-sans);
+  line-height: var(--line-height-base);
+  min-height: 100vh;
+}
+
+/* 4. Headings & Paragraphs */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-display);
+  color: var(--color-text);
+  margin-bottom: 0.5em;
+}
+h1 { font-size: 2.5rem; line-height: 1.2; }
+h2 { font-size: 2rem;   line-height: 1.3; }
+h3 { font-size: 1.5rem; line-height: 1.4; }
+p { margin-bottom: 1em; }
+
+/* 5. Links */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+a:hover, a:focus {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+/* 6. Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 7. Lists */
+ul, ol {
+  margin-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+/* 8. Buttons & Forms */
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+.btn {
+  display: inline-block;
+  font-family: var(--font-family-display);
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 24px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--color-primary);
+  color: #fff;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+.btn:hover {
+  background-color: var(--color-accent);
+}
+.btn:active {
+  background-color: #2E341F;
+  transform: scale(0.97);
+}
+
+/* 9. Utility Classes */
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}

@@ -1,0 +1,154 @@
+/* layout.css */
+
+/* Header & Navigation */
+header {
+    background-color: var(--color-primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+  }
+  header .logo {
+    width: 114px;
+    height: auto;
+  }
+  nav {
+    margin-left: auto;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  nav a {
+    color: #fff;
+    font-family: var(--font-family-display);
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  nav a:hover {
+    color: var(--color-accent);
+  }
+  
+  /* Hero Section */
+  .hero {
+    position: relative;
+    background-color: var(--color-background);
+    overflow: hidden;
+  }
+  .hero img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+  }
+  .hero__content {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    color: var(--color-text);
+  }
+  .hero__title {
+    font-family: var(--font-family-display);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .hero__subtitle {
+    font-family: var(--font-family-sans);
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* Features Slider */
+  .features-slider {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding: 2rem 0;
+    scroll-snap-type: x mandatory;
+  }
+  .features-slider > * {
+    scroll-snap-align: start;
+    flex: 0 0 auto;
+  }
+  
+  /* Benefits / Values Section */
+  .benefits {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    padding: 4rem 0;
+  }
+  .benefit-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    text-align: center;
+    gap: 1rem;
+  }
+  .benefit-item svg {
+    width: 64px;
+    height: 64px;
+    fill: var(--color-primary);
+  }
+  .benefit-item h3 {
+    font-family: var(--font-family-display);
+    font-size: 1.25rem;
+  }
+  .benefit-item p {
+    font-family: var(--font-family-sans);
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  
+  /* CTA Section */
+  .cta {
+    background-color: var(--color-background);
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+  .cta__title {
+    font-family: var(--font-family-display);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: var(--color-primary);
+    color: #fff;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .footer__nav,
+  .footer__social {
+    display: flex;
+    gap: 2rem;
+  }
+  .footer__nav a,
+  .footer__social a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .footer__nav a:hover,
+  .footer__social a:hover {
+    color: var(--color-accent);
+  }
+  .footer__copyright {
+    font-family: var(--font-family-sans);
+    font-size: 0.875rem;
+  }
+  

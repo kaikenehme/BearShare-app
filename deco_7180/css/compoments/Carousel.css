@@ -1,0 +1,82 @@
+/* —— Card Carousel Styles —— */
+.card-carousel__title {
+    font-family: var(--font-family-display);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .card-carousel {
+    overflow: visible;
+  }
+  
+  /* 进度条容器 */
+  .card-carousel__progress {
+    position: relative;
+    height: 4px;
+    background: #e0e0e0;
+    border-radius: 2px;
+    overflow: visible;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* 进度填充 */
+  .card-carousel__progress-fill {
+    width: 0%;
+    height: 100%;
+    background: var(--color-accent);
+    transition: width 0.1s linear;
+  }
+  
+  /* 考拉指示器 */
+  .card-carousel__koala {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 80px;                          /* 从 24px → 32px，更大一点 */
+    transform: translate(-50%, -50%);
+    animation: koala-rock 0.8s ease-in-out infinite;
+    pointer-events: none;
+  }
+  
+  @keyframes koala-rock {
+    0%, 100% {
+      transform: translate(calc(var(--x, 0px) - 50%), -50%) rotate(0deg);
+    }
+    25% {
+      transform: translate(calc(var(--x, 0px) - 50%), -50%) rotate(5deg);
+    }
+    50% {
+      transform: translate(calc(var(--x, 0px) - 50%), -50%) rotate(0deg);
+    }
+    75% {
+      transform: translate(calc(var(--x, 0px) - 50%), -50%) rotate(-5deg);
+    }
+  }
+  
+  /* 滑动轨道 */
+  .card-carousel__track {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* 单个卡片项 */
+  .card-carousel__item {
+    flex: 0 0 260px;
+    scroll-snap-align: start;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+  }
+  
+  /* 卡片内图片 */
+  .card-carousel__item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
