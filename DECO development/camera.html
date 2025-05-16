@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title id="logo">Bear Share</title>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+
+    <body>
+
+        <div class="phone-desktop-border">
+
+            <div class="banner">
+                <div class="header-title">
+                    <a href="index.html">
+                        <span class="font-a">Bear</span><span class="font-b">Share</span>
+                    </a>
+                </div>
+                <div class="profile-icon">
+                    <a href="profile.html">
+                        <img src="images/profile.svg" alt="Profile Icon" width="28" height="28">
+                    </a>
+                </div>
+
+            <div class="camera-container">
+                <video id="video" width="100%" autoplay></video>
+                <button id="snap">📸 Snap</button>
+                <canvas id="canvas" style="display: none;"></canvas>
+                <p id="result"></p>
+            </div>
+            
+            <script>
+                const video = document.getElementById('video');
+                const canvas = document.getElementById('canvas');
+                const snapBtn = document.getElementById('snap');
+                const result = document.getElementById('result');
+
+                navigator.mediaDevices.getUserMedia({ video: true })
+                    .then(stream => {
+                        video.srcObject = stream;
+                    })
+                    .catch(err => {
+                        console.error("Camera access denied:", err);
+                        result.textContent = "❌ Unable to access camera.";
+                    });
+
+                snapBtn.addEventListener('click', () => {
+                    const context = canvas.getContext('2d');
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                    canvas.toBlob(blob => {
+                        const formData = new FormData();
+                        formData.append('image', blob, 'snapshot.jpg');
+                        fetch('/predict', {
+                            method: 'POST',
+                            body: formData
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            result.textContent = `Detected: ${data.label}`;
+                        })
+                        .catch(error => {
+                            console.error('Prediction error:', error);
+                            result.textContent = "❌ Prediction failed.";
+                        });
+                    }, 'image/jpeg');
+                });
+            </script>
+
+            </div>
+	
+            <footer class="navigation">
+                <div class="navigation-menu">
+                    <a href="index.html" class="navigation-item">
+                        <img src="images/home-alt.svg" alt="Home Icon" width="24" height="24">
+                    </a>
+                    <a href="collection.html" class="navigation-item">
+                        <img src="images/readme.svg" alt="Collection Icon" width="24" height="24">
+                    </a>
+                    <a href="#" class="navigation-item active">
+                        <img src="images/camera.svg" alt="Camera Icon" width="40" height="40">
+                    </a>
+                    <a href="social.html" class="navigation-item">
+                        <img src="images/heart.svg" alt="Heart Social" width="24" height="24">
+                    </a>
+                    <a href="settings.html" class="navigation-item">
+                        <img src="images/menu-right-alt.svg" alt="Settings Icon" width="24" height="24">
+                    </a>
+                </div>
+            </footer>
+
+            <script src="script/JSscript.js"></script>
+
+        </div>
+
+    </body>
+
+</html>
