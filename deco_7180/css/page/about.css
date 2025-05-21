@@ -1,0 +1,118 @@
+.about__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 4rem 0;
+  }
+  
+  .about__text {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .about__image {
+    flex: 1;
+    text-align: right;
+  }
+  .about__image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .about__wrapper {
+      flex-direction: column;
+      text-align: center;
+    }
+    .about__image {
+      margin-top: 2rem;
+      text-align: center;
+    }
+  }
+
+
+  /* Team Section */
+.team {
+    padding: 4rem 0;
+  }
+  .team h2 {
+    font-family: var(--font-family-display);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+    position: relative;
+  }
+  .team h2::after {
+    content: "";
+    width: 80px;
+    height: 4px;
+    background: var(--color-accent);
+    display: block;
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+  }
+  
+  /* 两列两行网格布局 */
+  .team__members {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 4rem;
+  }
+  
+  /* 单个成员卡片 */
+  .team__member {
+    background: var(--color-background);
+    border: 2px solid var(--color-secondary);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+  }
+  
+  /* 卡片顶部彩色条 */
+  .team__member::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent2));
+  }
+  
+  /* 头像 */
+  .team__member img {
+    width: 120px;               /* 固定宽度 */
+    height: 120px;              /* 固定高度 */
+    object-fit: cover;          /* 保持比例并裁剪 */
+    border-radius: 50%;         /* 变成圆形 */
+    margin: 1.5rem auto 1rem;   /* 上下留白、左右居中 */
+    display: block;
+  }
+  
+  /* 姓名 */
+  .team__member h3 {
+    font-family: var(--font-family-display);
+    font-size: 1.5rem;
+    color: var(--color-jacko-bean);
+    margin: 1rem 0 0.5rem;
+  }
+  
+  /* 职位／简介 */
+  .team__member p {
+    font-family: var(--font-family-sans);
+    font-size: 1rem;
+    color: var(--color-text);
+    padding: 0 1rem 1.5rem;
+    line-height: 1.4;
+  }
+  
+  /* 悬停效果 */
+  .team__member:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  }

@@ -5,6 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>infinite scrolling canvas</title>
+    <link rel="stylesheet" href="css/base.css"></head>
+    <link rel="stylesheet" href="css/layout.css"></head>
+    <link rel="stylesheet" href="css/page/home_page.css"></head>
+    <link rel="stylesheet" href="css/compoments/video.css"></head>
+    <link rel="stylesheet" href="css/compoments/Carousel.css"></head>
+    <link rel="stylesheet" href="css/compoments/auth-modal.css"></head>
+
     <style>
         * {
             padding: 0;
@@ -30,6 +37,20 @@
 </head>
 
 <body>
+    <header class="site-header">
+        <div class="header-container container">
+          <img class="logo" src="photos/logo.png" alt="SnapSpecies Logo" />
+          <span class="brand">BearShared</span>
+          <nav class="main-nav">
+            <ul class="nav-links">
+              <li><a href='/deco_7180/index.html'>Home</a></li>
+              <li><a href="/deco_7180/collect.html">Collection</a></li>
+              <li><a href="/deco_7180/about.html">About</a></li>
+            </ul>
+          </nav>
+          <a href="javascript:void(0)" id="get-app-btn" class="btn nav-btn">Get the App</a>
+        </div>
+      </header>
     <canvas class="photobox"></canvas>
 </body>
 <script>

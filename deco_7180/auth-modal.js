@@ -100,6 +100,8 @@ loginForm.addEventListener('submit', async e => {
   if (success) {
     alert(data.message);
     loginForm.reset();
+    // Redirect after successful login
+    window.location.href = '/DECO development/index.html';
   } else {
     alert('Operation failed (mocked)');
   }
@@ -120,6 +122,8 @@ registerForm.addEventListener('submit', async e => {
   if (success) {
     alert(data.message);
     registerForm.reset();
+    // Redirect after successful registration
+    window.location.href = '/DECO development/index.html';
   } else {
     alert('Operation failed (mocked)');
   }
