@@ -26,53 +26,18 @@
                         <img src="images/profile.svg" alt="Profile Icon" width="28" height="28">
                     </a>
                 </div>
+            </div>
 
             <div class="camera-container">
-                <video id="video" width="100%" autoplay></video>
-                <button id="snap">📸 Snap</button>
+                <video id="video" autoplay></video>
                 <canvas id="canvas" style="display: none;"></canvas>
-                <p id="result"></p>
             </div>
             
-            <script>
-                const video = document.getElementById('video');
-                const canvas = document.getElementById('canvas');
-                const snapBtn = document.getElementById('snap');
-                const result = document.getElementById('result');
-
-                navigator.mediaDevices.getUserMedia({ video: true })
-                    .then(stream => {
-                        video.srcObject = stream;
-                    })
-                    .catch(err => {
-                        console.error("Camera access denied:", err);
-                        result.textContent = "❌ Unable to access camera.";
-                    });
-
-                snapBtn.addEventListener('click', () => {
-                    const context = canvas.getContext('2d');
-                    canvas.width = video.videoWidth;
-                    canvas.height = video.videoHeight;
-                    context.drawImage(video, 0, 0, canvas.width, canvas.height);
-                    canvas.toBlob(blob => {
-                        const formData = new FormData();
-                        formData.append('image', blob, 'snapshot.jpg');
-                        fetch('/predict', {
-                            method: 'POST',
-                            body: formData
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            result.textContent = `Detected: ${data.label}`;
-                        })
-                        .catch(error => {
-                            console.error('Prediction error:', error);
-                            result.textContent = "❌ Prediction failed.";
-                        });
-                    }, 'image/jpeg');
-                });
-            </script>
-
+            <div class="button-container">
+                <button id="capture" class="style-button">Capture</button>
+                <form id="uploadForm" method="POST" enctype="multipart/form-data">
+                    <input type="submit" value="Send to Predict" class="style-button"/>
+                </form>
             </div>
 	
             <footer class="navigation">
@@ -87,7 +52,7 @@
                         <img src="images/camera.svg" alt="Camera Icon" width="40" height="40">
                     </a>
                     <a href="social.html" class="navigation-item">
-                        <img src="images/heart.svg" alt="Heart Social" width="24" height="24">
+                            <img src="images/heart.svg" alt="Heart Social" width="24" height="24">
                     </a>
                     <a href="settings.html" class="navigation-item">
                         <img src="images/menu-right-alt.svg" alt="Settings Icon" width="24" height="24">
@@ -95,7 +60,7 @@
                 </div>
             </footer>
 
-            <script src="script/JSscript.js"></script>
+            <script src="script/JSscriptCamera.js"></script>
 
         </div>
 
