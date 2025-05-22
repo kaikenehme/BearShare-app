@@ -8,7 +8,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="../static/style.css"/>
     </head>
 
     <body>
@@ -28,31 +28,55 @@
                 </div>
             </div>
 
-            <div class="camera-container">
-                <video id="video" autoplay></video>
-                <canvas id="canvas" style="display: none;"></canvas>
-            </div>
-            
-            <div class="button-container">
-                <button id="capture" class="style-button">Capture</button>
-                <form id="uploadForm" method="POST" enctype="multipart/form-data">
-                    <input type="submit" value="Send to Predict" class="style-button"/>
-                </form>
-            </div>
+	        <section class="search-menu">
+		        <div class="search-box">
+			        <button class="search-icon">
+				        <img src="images/search.svg" alt="Search Icon" width="24" height="24">
+			        </button>
+			        <input type="text" class="search-input" placeholder="Search Cards"/>
+		        </div>
+	        </section>
+
+	        <section class="sub-header">
+		        <h2 class="sub-header-title">featured cards</h2>
+            </section>
+
+            <section class="image-slide">
+                <div class="image-slide-container">
+                    <div class="image-slide-images">
+                        <img src="images/platypus.png" alt="Platypus Card (Rare)" class="image-rounded"/>
+                        <img src="images/kangaroo.png" alt="Kangaroo Card (Common)" class="image-rounded"/>
+                        <img src="images/tassie_devil.png" alt="Tasmanian Devil (Common)" class="image-rounded"/>
+                    </div>
+                    <button class="image-slide-button back">&#10094;</button>
+                    <button class="image-slide-button next">&#10095;</button>
+                </div>
+            </section>
+
+            <section class="section-two">
+                <div class="section-two-left">
+                    <span class="section-two-item-active"></span>
+                </div>
+                <div class="section-two-right">
+                    <a href="collection.html" class="section-two-item">
+                        <img src="images/info.svg" alt="Info Icon" width="24" height="24">
+                    </a>
+                </div>
+            </section>
 	
             <footer class="navigation">
                 <div class="navigation-menu">
-                    <a href="index.html" class="navigation-item">
+                    <a href="#" class="navigation-item active">
                         <img src="images/home-alt.svg" alt="Home Icon" width="24" height="24">
                     </a>
                     <a href="collection.html" class="navigation-item">
                         <img src="images/readme.svg" alt="Collection Icon" width="24" height="24">
                     </a>
-                    <a href="#" class="navigation-item active">
+                    <a href="camera.html" class="navigation-item">
                         <img src="images/camera.svg" alt="Camera Icon" width="40" height="40">
                     </a>
                     <a href="social.html" class="navigation-item">
-                            <img src="images/heart.svg" alt="Heart Social" width="24" height="24">
+                        <img src="images/heart.svg" alt="Heart Social" width="24" height="24">
                     </a>
                     <a href="settings.html" class="navigation-item">
                         <img src="images/menu-right-alt.svg" alt="Settings Icon" width="24" height="24">
@@ -60,7 +84,7 @@
                 </div>
             </footer>
 
-            <script src="script/JSscriptCamera.js"></script>
+            <script src="../static/script/JSscript.js"></script>
 
         </div>
 
