@@ -5,8 +5,11 @@ import numpy as np
 import joblib
 import tkinter as tk
 from PIL import Image, ImageTk
-from flask import send_from_directory, redirect, url_for
+from flask import Flask, render_template, request, jsonify, redirect, url_for
+from flask_cors import CORS
+from multiprocessing import Process
 import pathlib
+from pathlib import Path
 
 
 def show_flipping_card(species_name):
@@ -205,24 +208,51 @@ def run_cli():
     p.join()
 
 
-from flask import Flask, render_template, request, jsonify
-from flask_cors import CORS
-from multiprocessing import Process
+# Set frontend_path to the DECO development directory
+frontend_path = Path(__file__).resolve().parent / "DECO development"
+templates_path = frontend_path / "templates"
+static_path = frontend_path / "static"
 
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    template_folder=str(templates_path),
+    static_folder=str(static_path),
+    static_url_path="/static"
+)
 CORS(app)
-
-frontend_path = pathlib.Path(__file__).parent / "DECO development"
-app.template_folder = str(frontend_path)
-app.static_folder = str(frontend_path)
-
-@app.route("/<path:filename>")
-def serve_static(filename):
-    return send_from_directory(frontend_path, filename)
 
 @app.route("/")
 def index():
-    return send_from_directory(frontend_path, "index.html")
+    return render_template("index.html")
+
+# Serve camera.html
+@app.route("/camera")
+def camera():
+    return render_template("camera.html")
+
+@app.route("/profile")
+def profile():
+    return render_template("profile.html")
+
+@app.route("/collection")
+def collection():
+    return render_template("collection.html")
+
+@app.route("/collection-unlocked")
+def collection_unlocked():
+    return render_template("collection-unlocked.html")
+
+@app.route("/social")
+def social():
+    return render_template("social.html")
+
+@app.route("/settings")
+def settings():
+    return render_template("settings.html")
+
+@app.route("/card-<species>.html")
+def card_page(species):
+    return render_template(f"card-{species}.html")
 
 @app.route("/predict", methods=["POST"])
 def predict():
@@ -239,7 +269,7 @@ def predict():
     p.start()
 
     species_filename = species.lower().replace(" ", "-")
-    return redirect(f"/card-{species_filename}.html")
+    return redirect(url_for("card_page", species=species_filename))
 
 if __name__ == "__main__":
     import sys

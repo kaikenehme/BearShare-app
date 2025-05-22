@@ -8,7 +8,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../static/style.css"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
     </head>
 
     <body>
@@ -17,13 +17,13 @@
 
             <div class="banner">
                 <div class="header-title">
-                    <a href="index.html">
+                    <a href="{{ url_for('index') }}">
                         <span class="font-a">Bear</span><span class="font-b">Share</span>
                     </a>
                 </div>
                 <div class="profile-icon">
-                    <a href="profile.html">
-                        <img src="images/profile.svg" alt="Profile Icon" width="28" height="28">
+                    <a href="{{ url_for('profile') }}">
+                        <img src="{{ url_for('static', filename='images/profile.svg') }}" alt="Profile Icon" width="28" height="28">
                     </a>
                 </div>
             </div>
@@ -31,7 +31,7 @@
 	        <section class="search-menu">
 		        <div class="search-box">
 			        <button class="search-icon">
-				        <img src="images/search.svg" alt="Search Icon" width="24" height="24">
+				        <img src="{{ url_for('static', filename='images/search.svg') }}" alt="Search Icon" width="24" height="24">
 			        </button>
 			        <input type="text" class="search-input" placeholder="Search Cards"/>
 		        </div>
@@ -44,7 +44,7 @@
             <section class="image-expand">
                 <div class="image-container">
                     <div class="image">
-                        <img src="images/koala.png" alt="Koala Card (Common)" class="image-rounded">
+                        <img src="{{ url_for('static', filename='images/koala.png') }}" alt="Koala Card (Common)" class="image-rounded">
                     </div>
                 </div>
             </section>
@@ -54,33 +54,33 @@
                     <span class="section-two-item-active">Owned: #</span>
                 </div>
                 <div class="section-two-right">
-                    <a href="collection.html" class="section-two-item-right">
-                        <img src="images/back.svg" alt="Back Icon" width="24" height="24">
+                    <a href="{{ url_for('collection') }}" class="section-two-item-right">
+                        <img src="{{ url_for('static', filename='images/back.svg') }}" alt="Back Icon" width="24" height="24">
                     </a>
                 </div>
             </section>
 	
             <footer class="navigation">
                 <div class="navigation-menu">
-                    <a href="index.html" class="navigation-item">
-                        <img src="images/home-alt.svg" alt="Home Icon" width="24" height="24">
+                    <a href="{{ url_for('index') }}" class="navigation-item">
+                        <img src="{{ url_for('static', filename='images/home-alt.svg') }}" alt="Home Icon" width="24" height="24">
                     </a>
-                    <a href="collection.html" class="navigation-item active">
-                        <img src="images/readme.svg" alt="Collection Icon" width="24" height="24">
+                    <a href="{{ url_for('collection') }}" class="navigation-item active">
+                        <img src="{{ url_for('static', filename='images/readme.svg') }}" alt="Collection Icon" width="24" height="24">
                     </a>
-                    <a href="camera.html" class="navigation-item">
-                        <img src="images/camera.svg" alt="Camera Icon" width="40" height="40">
+                    <a href="{{ url_for('camera') }}" class="navigation-item">
+                        <img src="{{ url_for('static', filename='images/camera.svg') }}" alt="Camera Icon" width="40" height="40">
                     </a>
-                    <a href="social.html" class="navigation-item">
-                        <img src="images/heart.svg" alt="Heart Social" width="24" height="24">
+                    <a href="{{ url_for('social') }}" class="navigation-item">
+                        <img src="{{ url_for('static', filename='images/heart.svg') }}" alt="Heart Social" width="24" height="24">
                     </a>
-                    <a href="settings.html" class="navigation-item">
-                        <img src="images/menu-right-alt.svg" alt="Settings Icon" width="24" height="24">
+                    <a href="{{ url_for('settings') }}" class="navigation-item">
+                        <img src="{{ url_for('static', filename='images/menu-right-alt.svg') }}" alt="Settings Icon" width="24" height="24">
                     </a>
                 </div>
             </footer>
 
-            <script src="../static/script/JSscript.js"></script>
+            <script src="{{ url_for('static', filename='script/JSscript.js') }}"></script>
 
         </div>
 

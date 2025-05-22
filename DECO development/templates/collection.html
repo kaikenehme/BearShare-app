@@ -8,7 +8,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../static/style.css"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
     </head>
 
     <body>
@@ -17,13 +17,13 @@
 
             <div class="banner">
                 <div class="header-title">
-                    <a href="index.html">
+                    <a href="{{ url_for('index') }}">
                         <span class="font-a">Bear</span><span class="font-b">Share</span>
                     </a>
                 </div>
                 <div class="profile-icon">
-                    <a href="profile.html">
-                        <img src="images/profile.svg" alt="Profile Icon" width="28" height="28">
+                    <a href="{{ url_for('profile') }}">
+                        <img src="{{ url_for('static', filename='images/profile.svg') }}" alt="Profile Icon" width="28" height="28">
                     </a>
                 </div>
             </div>
@@ -31,7 +31,7 @@
 	        <section class="search-menu">
 		        <div class="search-box">
 			        <button class="search-icon">
-				        <img src="images/search.svg" alt="Search Icon" width="24" height="24">
+				        <img src="{{ url_for('static', filename='images/search.svg') }}" alt="Search Icon" width="24" height="24">
 			        </button>
 			        <input type="text" class="search-input" placeholder="Search Cards"/>
 		        </div>
@@ -43,62 +43,62 @@
 
             <section class="image-grid">
                 <div class="grid-column">
-                    <a href="card-platypus.html">
-                        <img src="images/platypus.png" alt="Platypus Card (Rare)" class="grid-image">
+                    <a href="{{ url_for('card_page', species='platypus') }}">
+                        <img src="{{ url_for('static', filename='images/platypus.png') }}" alt="Platypus Card (Rare)" class="grid-image">
                     </a>
-                    <a href="card-kangaroo.html">
-                        <img src="images/kangaroo.png" alt="Kangaroo Card (Common)" class="grid-image">
+                    <a href="{{ url_for('card_page', species='kangaroo') }}">
+                        <img src="{{ url_for('static', filename='images/kangaroo.png') }}" alt="Kangaroo Card (Common)" class="grid-image">
                     </a>
-                    <a href="card-tdevil.html">
-                        <img src="images/tassie_devil.png" alt="Tasmanian Devil (Common)" class="grid-image">
+                    <a href="{{ url_for('card_page', species='tdevil') }}">
+                        <img src="{{ url_for('static', filename='images/tassie_devil.png') }}" alt="Tasmanian Devil (Common)" class="grid-image">
                     </a>
-                    <a href="card-cassowary.html">
-                        <img src="images/cassowary.png" alt="Cassowary Card (Common)" class="grid-image">
+                    <a href="{{ url_for('card_page', species='cassowary') }}">
+                        <img src="{{ url_for('static', filename='images/cassowary.png') }}" alt="Cassowary Card (Common)" class="grid-image">
                     </a>
-                    <a href="card-gumtree.html">
-                        <img src="images/river_red_gum.png" alt="River Red Gum Card (Common)" class="grid-image">
+                    <a href="{{ url_for('card_page', species='gumtree') }}">
+                        <img src="{{ url_for('static', filename='images/river_red_gum.png') }}" alt="River Red Gum Card (Common)" class="grid-image">
                     </a>
                 </div>
                 <div class="grid-column">
-                    <a href="card-koala.html">
-                        <img src="images/koala.png" alt="Koala Card (Common)" class="grid-image">
+                    <a href="{{ url_for('card_page', species='koala') }}">
+                        <img src="{{ url_for('static', filename='images/koala.png') }}" alt="Koala Card (Common)" class="grid-image">
                     </a>
-                    <a href="card-wombat.html">
-                        <img src="images/wombat.png" alt="Wombat Card (Common)" class="grid-image">
+                    <a href="{{ url_for('card_page', species='wombat') }}">
+                        <img src="{{ url_for('static', filename='images/wombat.png') }}" alt="Wombat Card (Common)" class="grid-image">
                     </a>
-                    <a href="card-snake.html">
-                        <img src="images/red_belly_snake.png" alt="Red-Bellied Black Snake Card (Common)" class="grid-image">
+                    <a href="{{ url_for('card_page', species='snake') }}">
+                        <img src="{{ url_for('static', filename='images/red_belly_snake.png') }}" alt="Red-Bellied Black Snake Card (Common)" class="grid-image">
                     </a>
-                    <a href="card-wdragon.html">
-                        <img src="images/water_dragon.png" alt="Water Dragon Card (Common)" class="grid-image">
+                    <a href="{{ url_for('card_page', species='wdragon') }}">
+                        <img src="{{ url_for('static', filename='images/water_dragon.png') }}" alt="Water Dragon Card (Common)" class="grid-image">
                     </a>
-                    <a href="card-park.html">
-                        <img src="images/national_park.png" alt="National Park Card (Unique)" class="grid-image">
+                    <a href="{{ url_for('card_page', species='park') }}">
+                        <img src="{{ url_for('static', filename='images/national_park.png') }}" alt="National Park Card (Unique)" class="grid-image">
                     </a>
                 </div>
             </section>
 	
             <footer class="navigation">
                 <div class="navigation-menu">
-                    <a href="index.html" class="navigation-item">
-                        <img src="images/home-alt.svg" alt="Home Icon" width="24" height="24">
+                    <a href="{{ url_for('index') }}" class="navigation-item">
+                        <img src="{{ url_for('static', filename='images/home-alt.svg') }}" alt="Home Icon" width="24" height="24">
                     </a>
                     <a href="#" class="navigation-item active">
-                        <img src="images/readme.svg" alt="Collection Icon" width="24" height="24">
+                        <img src="{{ url_for('static', filename='images/readme.svg') }}" alt="Collection Icon" width="24" height="24">
                     </a>
-                    <a href="camera.html" class="navigation-item">
-                        <img src="images/camera.svg" alt="Camera Icon" width="40" height="40">
+                    <a href="{{ url_for('camera') }}" class="navigation-item">
+                        <img src="{{ url_for('static', filename='images/camera.svg') }}" alt="Camera Icon" width="40" height="40">
                     </a>
-                    <a href="social.html" class="navigation-item">
-                        <img src="images/heart.svg" alt="Heart Social" width="24" height="24">
+                    <a href="{{ url_for('social') }}" class="navigation-item">
+                        <img src="{{ url_for('static', filename='images/heart.svg') }}" alt="Heart Social" width="24" height="24">
                     </a>
-                    <a href="settings.html" class="navigation-item">
-                        <img src="images/menu-right-alt.svg" alt="Settings Icon" width="24" height="24">
+                    <a href="{{ url_for('settings') }}" class="navigation-item">
+                        <img src="{{ url_for('static', filename='images/menu-right-alt.svg') }}" alt="Settings Icon" width="24" height="24">
                     </a>
                 </div>
             </footer>
 
-            <script src="../static/script/JSscript.js"></script>
+            <script src="{{ url_for('static', filename='script/JSscript.js') }}"></script>
 
         </div>
 
