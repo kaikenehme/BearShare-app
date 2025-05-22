@@ -10,6 +10,7 @@ from flask_cors import CORS
 from multiprocessing import Process
 import pathlib
 from pathlib import Path
+import hashlib
 
 
 def show_flipping_card(species_name):
@@ -260,9 +261,13 @@ def predict():
         return jsonify({'error': 'No image uploaded'}), 400
 
     file = request.files['image']
-    file.save("snapshot.jpg")
+    img_path = os.path.join(app.root_path, "snapshot.jpg")
+    file.save(img_path)
+    with open(img_path, "rb") as f:
+        md5 = hashlib.md5(f.read()).hexdigest()
+        print(f"MD5 of snapshot: {md5}")
 
-    species = recognize_species("snapshot.jpg")
+    species = recognize_species(img_path)
 
     # ✅ Launch Tkinter flipping card in a separate process
     p = Process(target=show_flipping_card, args=(species,))

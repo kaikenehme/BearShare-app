@@ -6,36 +6,41 @@ const canvas = document.getElementById('canvas');
 const capture = document.getElementById('capture');
 const uploadForm = document.getElementById('uploadForm');
 
-    navigator.mediaDevices.getUserMedia({ video: true })
+navigator.mediaDevices.getUserMedia({ video: true })
 
-    .then(stream => {
-            video.srcObject = stream;
+.then(stream => {
+        video.srcObject = stream;
+    })
+    .catch(err => {
+        console.error("Webcam error:", err);
+    });
+
+capture.remove();
+
+uploadForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Capture current frame
+    const context = canvas.getContext('2d');
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+    canvas.toBlob(blob => {
+        const formData = new FormData();
+        formData.append('image', blob, 'snapshot.jpg');
+
+        fetch('/predict', {
+            method: 'POST',
+            body: formData
         })
-        .catch(err => {
-            console.error("Webcam error:", err);
-        });
-
-        capture.addEventListener('click', () => {
-            const context = canvas.getContext('2d');
-            context.drawImage(video, 0, 0, canvas.width, canvas.height);
-        });
-
-        uploadForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            canvas.toBlob(blob => {
-            const formData = new FormData();
-            formData.append('image', blob, 'snapshot.jpg');
-
-            fetch('/predict', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => {
-                if (response.redirected) {
-                window.location.href = response.url;
+        .then(response => response.json())
+        .then(data => {
+            if (data.species) {
+                const speciesSlug = data.species.toLowerCase().replace(/\s+/g, '-');
+                window.location.href = `/card-${speciesSlug}.html`;
+            } else if (data.error) {
+                alert("Prediction error: " + data.error);
             }
-            })
-            .catch(err => console.error('Upload failed', err));
-            }, 'image/jpeg');
-        });
+        })
+        .catch(err => console.error('Upload failed', err));
+    }, 'image/jpeg');
+});
