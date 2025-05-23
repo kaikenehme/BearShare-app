@@ -1,113 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<<<<<<< HEAD
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Card Collection</title>
-    <link rel="stylesheet" href="css/base.css"/>
-    <link rel="stylesheet" href="css/layout.css"/>
-    <link rel="stylesheet" href="css/page/home_page.css"/>
-    <link rel="stylesheet" href="css/compoments/video.css"/>
-    <link rel="stylesheet" href="css/compoments/Carousel.css"/>
-    <link rel="stylesheet" href="css/compoments/auth-modal.css"/>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #F4EDE4;
-            font-family: sans-serif;
-        }
-
-        .gallery-container {
-            max-width: 1200px;
-            margin: 80px auto 20px;
-            padding: 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 20px;
-        }
-
-        .gallery-container img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            object-fit: cover;
-            transition: transform 0.2s;
-        }
-
-        .gallery-container img:hover {
-            transform: scale(1.05);
-        }
-
-        .site-header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: white;
-            padding: 10px 0;
-            z-index: 1000;
-        }
-
-        .header-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: auto;
-            padding: 0 20px;
-        }
-
-        .brand {
-            font-weight: bold;
-            font-size: 20px;
-            margin-left: 10px;
-        }
-
-        .main-nav ul {
-            list-style: none;
-            display: flex;
-            gap: 15px;
-        }
-
-        .main-nav a {
-            text-decoration: none;
-            color: black;
-        }
-    </style>
-</head>
-<body>
-<header class="site-header">
-    <div class="header-container">
-        <img class="logo" src="photos/logo.png" alt="BearShare Logo" height="40" />
-        <span class="brand">BearShare</span>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="collect.html">Collection</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
-        <a href="#" id="get-app-btn" class="btn nav-btn">Get the App</a>
-    </div>
-</header>
-
-<main class="gallery-container" id="gallery"></main>
-
-<script>
-    const totalImages = 28;
-    const gallery = document.getElementById("gallery");
-
-    for (let i = 1; i <= totalImages; i++) {
-        const img = document.createElement("img");
-        img.src = `photos/photo (${i}).png`;
-        img.alt = `Card ${i}`;
-        gallery.appendChild(img);
-    }
-</script>
-</body>
-</html>
-=======
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Photo Grid</title>
@@ -208,7 +101,6 @@
   </header>
 
   <main class="photo-grid">
-    <!-- Show 10 photos -->
     <img src="photos/photo (1).png" alt="Photo 1" />
     <img src="photos/photo (2).png" alt="Photo 2" />
     <img src="photos/photo (3).png" alt="Photo 3" />
@@ -222,4 +114,3 @@
   </main>
 </body>
 </html>
->>>>>>> 9c47772 (Fixed Collect)
