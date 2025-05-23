@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title id="logo">Bear Share</title>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+    </head>
+
+    <body>
+
+        <div class="phone-desktop-border">
+
+            <div class="banner">
+                <div class="header-title">
+                    <a href="{{ url_for('index') }}">
+                        <span class="font-a">Bear</span><span class="font-b">Share</span>
+                    </a>
+                </div>
+                <div class="profile-icon">
+                    <a href="{{ url_for('profile') }}">
+                        <img src="{{ url_for('static', filename='images/profile.svg') }}" alt="Profile Icon" width="28" height="28">
+                    </a>
+                </div>
+            </div>
+
+            <div class="camera-container">
+                <video id="video" autoplay></video>
+                <canvas id="canvas" style="display: none;"></canvas>
+            </div>
+            
+            <div class="button-container">
+                <form id="uploadForm" method="POST" enctype="multipart/form-data">
+                    <input type="submit" value="Send to Predict" class="style-button"/>
+                </form>
+            </div>
+	
+            <footer class="navigation">
+                <div class="navigation-menu">
+                    <a href="{{ url_for('index') }}" class="navigation-item">
+                        <img src="{{ url_for('static', filename='images/home-alt.svg') }}" alt="Home Icon" width="24" height="24">
+                    </a>
+                    <a href="{{ url_for('collection') }}" class="navigation-item">
+                        <img src="{{ url_for('static', filename='images/readme.svg') }}" alt="Collection Icon" width="24" height="24">
+                    </a>
+                    <a href="#" class="navigation-item active">
+                        <img src="{{ url_for('static', filename='images/camera.svg') }}" alt="Camera Icon" width="40" height="40">
+                    </a>
+                    <a href="{{ url_for('social') }}" class="navigation-item">
+                            <img src="{{ url_for('static', filename='images/heart.svg') }}" alt="Heart Social" width="24" height="24">
+                    </a>
+                    <a href="{{ url_for('settings') }}" class="navigation-item">
+                        <img src="{{ url_for('static', filename='images/menu-right-alt.svg') }}" alt="Settings Icon" width="24" height="24">
+                    </a>
+                </div>
+            </footer>
+
+            <script src="{{ url_for('static', filename='script/JSscriptCamera.js') }}"></script>
+
+        </div>
+
+    </body>
+
+</html>

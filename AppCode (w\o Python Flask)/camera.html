@@ -8,7 +8,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+        <link rel="stylesheet" href="style.css"/>
     </head>
 
     <body>
@@ -17,13 +17,13 @@
 
             <div class="banner">
                 <div class="header-title">
-                    <a href="{{ url_for('index') }}">
+                    <a href="index.html">
                         <span class="font-a">Bear</span><span class="font-b">Share</span>
                     </a>
                 </div>
                 <div class="profile-icon">
-                    <a href="{{ url_for('profile') }}">
-                        <img src="{{ url_for('static', filename='images/profile.svg') }}" alt="Profile Icon" width="28" height="28">
+                    <a href="profile.html">
+                        <img src="images/profile.svg" alt="Profile Icon" width="28" height="28">
                     </a>
                 </div>
             </div>
@@ -34,7 +34,6 @@
             </div>
             
             <div class="button-container">
-                <button id="capture" class="style-button">Capture</button>
                 <form id="uploadForm" method="POST" enctype="multipart/form-data">
                     <input type="submit" value="Send to Predict" class="style-button"/>
                 </form>
@@ -42,25 +41,25 @@
 	
             <footer class="navigation">
                 <div class="navigation-menu">
-                    <a href="{{ url_for('index') }}" class="navigation-item">
-                        <img src="{{ url_for('static', filename='images/home-alt.svg') }}" alt="Home Icon" width="24" height="24">
+                    <a href="index.html" class="navigation-item">
+                        <img src="images/home-alt.svg" alt="Home Icon" width="24" height="24">
                     </a>
-                    <a href="{{ url_for('collection') }}" class="navigation-item">
-                        <img src="{{ url_for('static', filename='images/readme.svg') }}" alt="Collection Icon" width="24" height="24">
+                    <a href="collection.html" class="navigation-item">
+                        <img src="images/readme.svg" alt="Collection Icon" width="24" height="24">
                     </a>
                     <a href="#" class="navigation-item active">
-                        <img src="{{ url_for('static', filename='images/camera.svg') }}" alt="Camera Icon" width="40" height="40">
+                        <img src="images/camera.svg" alt="Camera Icon" width="40" height="40">
                     </a>
-                    <a href="{{ url_for('social') }}" class="navigation-item">
-                            <img src="{{ url_for('static', filename='images/heart.svg') }}" alt="Heart Social" width="24" height="24">
+                    <a href="social.html" class="navigation-item">
+                            <img src="images/heart.svg" alt="Heart Social" width="24" height="24">
                     </a>
-                    <a href="{{ url_for('settings') }}" class="navigation-item">
-                        <img src="{{ url_for('static', filename='images/menu-right-alt.svg') }}" alt="Settings Icon" width="24" height="24">
+                    <a href="settings.html" class="navigation-item">
+                        <img src="images/menu-right-alt.svg" alt="Settings Icon" width="24" height="24">
                     </a>
                 </div>
             </footer>
 
-            <script src="{{ url_for('static', filename='script/JSscriptCamera.js') }}"></script>
+            <script src="script/JSscriptCamera.js"></script>
 
         </div>
 

@@ -209,8 +209,8 @@ def run_cli():
     p.join()
 
 
-# Set frontend_path to the DECO development directory
-frontend_path = Path(__file__).resolve().parent / "DECO development"
+# Set frontend_path to the App code directory
+frontend_path = Path(__file__).resolve().parent / "AppCode"
 templates_path = frontend_path / "templates"
 static_path = frontend_path / "static"
 
