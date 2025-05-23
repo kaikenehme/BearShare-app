@@ -1,10 +1,10 @@
-# 🐨 BearShare: Fauna & Flora Recognition App
+# BearShare: Fauna & Flora Recognition App
 
 BearShare is an interactive web application that identifies Australian wildlife species using your webcam. It features a collectible card-flip animation for each recognized animal. This project combines machine learning, a custom-trained classifier, and a Flask backend, integrated with an HTML/CSS/JS frontend.
 
 ---
 
-## 🚀 How to Set Up the Project
+## How to Set Up the Project
 
 ### 1. Clone the Repository
 
@@ -31,7 +31,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🧠 How It Works
+## How It Works
 
 - A webcam image is captured in the browser.
 - The image is sent to a Flask backend via the `/predict` route.
@@ -41,7 +41,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🧪 Run the App (Locally)
+## Run the App (Locally)
 
 To run the app locally (to access the camera and model integration):
 
@@ -57,7 +57,7 @@ http://127.0.0.1:5050
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 BearShare-app/
@@ -84,7 +84,7 @@ BearShare-app/
 
 ---
 
-## 🛠️ Notes
+## Notes
 
 - This app requires webcam access. Run locally for full camera integration.
 - Ensure your `.venv/` is excluded from GitHub commits.
