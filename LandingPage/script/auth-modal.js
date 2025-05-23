@@ -62,45 +62,16 @@ registerLink.addEventListener('click', e => {
   loginForm.classList.add('hidden');
 });
 
-// // 表单提交示例（根据你的 API 改写）
-// loginForm.addEventListener('submit', async e => {
-//   e.preventDefault();
-//   const data = new FormData(loginForm);
-//   // TODO: 调用登录 API
-//   // 如: await fetch('/api/auth/login', { method:'POST', body:data });
-//   alert('Logging in: ' + data.get('username'));
-//   // 登录成功后跳转到 App 下载页
-//   // window.location.href = 'https://your.app.download/link';
-// });
-
-// registerForm.addEventListener('submit', async e => {
-//   e.preventDefault();
-//   const data = new FormData(registerForm);
-//   if (data.get('password') !== data.get('confirmPassword')) {
-//     alert('Passwords do not match!');
-//     return;
-//   }
-//   // TODO: 调用注册 API
-//   // 如: await fetch('/api/auth/register', { method:'POST', body:data });
-//   alert('Registering: ' + data.get('firstName') + ' ' + data.get('lastName'));
-//   // 注册成功后也可跳转
-//   // window.location.href = 'https://your.app.download/link';
-// });
-
-// 假设这是你的 auth-modal.js 或者 community.js
 
 loginForm.addEventListener('submit', async e => {
   e.preventDefault();
   const formData = new FormData(loginForm);
-  // 如果登录接口也需要 student_number/uqcloud_zone_id，先 append
   formData.append('student_number', 's4863587');
   formData.append('uqcloud_zone_id', '7857996d');
-  // Use mock storage API instead of real fetch
   const { success, data } = await mockPostCommunity(formData);
   if (success) {
     alert(data.message);
     loginForm.reset();
-    // Redirect after successful login
     window.location.href = '/DECO development/index.html';
   } else {
     alert('Operation failed (mocked)');
@@ -114,22 +85,22 @@ registerForm.addEventListener('submit', async e => {
     alert('Passwords do not match!');
     return;
   }
-  // 添加你需要的额外字段
+
   formData.append('student_number', 's4863587');
   formData.append('uqcloud_zone_id', '7857996d');
-  // Use mock storage API instead of real fetch
+
   const { success, data } = await mockPostCommunity(formData);
   if (success) {
     alert(data.message);
     registerForm.reset();
-    // Redirect after successful registration
+
     window.location.href = '/DECO development/index.html';
   } else {
     alert('Operation failed (mocked)');
   }
 });
 
-// On page load, render stored entries in mock community
+
 mockGetCommunity().then(list => {
   const container = document.getElementById('community-list');
   if (!container) return;
