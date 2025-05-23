@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Card Collection</title>
@@ -106,3 +107,119 @@
 </script>
 </body>
 </html>
+=======
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Photo Grid</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/page/home_page.css">
+  <link rel="stylesheet" href="css/compoments/video.css">
+  <link rel="stylesheet" href="css/compoments/Carousel.css">
+  <link rel="stylesheet" href="css/compoments/auth-modal.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #F4EDE4;
+      font-family: sans-serif;
+      color: white;
+    }
+
+    header.site-header {
+      background-color: #636B2F;
+      padding: 1rem;
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      height: 40px;
+      margin-right: 1rem;
+    }
+
+    .brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .main-nav .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .main-nav a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .btn.nav-btn {
+      background-color: #fff;
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .photo-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-container container">
+      <img class="logo" src="photos/logo.png" alt="SnapSpecies Logo" />
+      <span class="brand">BearShare</span>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="collect.html">Collection</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      <a href="javascript:void(0)" id="get-app-btn" class="btn nav-btn">Get the App</a>
+    </div>
+  </header>
+
+  <main class="photo-grid">
+    <!-- Show 10 photos -->
+    <img src="photos/photo (1).png" alt="Photo 1" />
+    <img src="photos/photo (2).png" alt="Photo 2" />
+    <img src="photos/photo (3).png" alt="Photo 3" />
+    <img src="photos/photo (4).png" alt="Photo 4" />
+    <img src="photos/photo (5).png" alt="Photo 5" />
+    <img src="photos/photo (6).png" alt="Photo 6" />
+    <img src="photos/photo (7).png" alt="Photo 7" />
+    <img src="photos/photo (8).png" alt="Photo 8" />
+    <img src="photos/photo (9).png" alt="Photo 9" />
+    <img src="photos/photo (10).png" alt="Photo 10" />
+  </main>
+</body>
+</html>
+>>>>>>> 9c47772 (Fixed Collect)
